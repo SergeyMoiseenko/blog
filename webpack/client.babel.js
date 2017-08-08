@@ -154,6 +154,9 @@ module.exports = (env) => {
     },
 
     output: output,
+    node: {
+      process: true
+    },
 
     devtool: ifProd("cheap-module-source-map", "eval"),
     devServer: {
@@ -180,11 +183,11 @@ module.exports = (env) => {
     context: path.resolve(process.cwd(), "src"),
 
     plugins: removeEmpty([
-      ifProd(new webpack.DefinePlugin({
+      new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: JSON.stringify("production")
+          NODE_ENV: JSON.stringify(ifProd("production", "development"))
         }
-      })),
+      }),
       ifDev(new webpack.HotModuleReplacementPlugin()),
       ifDev(new webpack.NamedModulesPlugin()),
       ifProd(new webpack.optimize.UglifyJsPlugin()),

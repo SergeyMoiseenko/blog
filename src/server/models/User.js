@@ -16,16 +16,6 @@ const UserSchema = new Schema(
       required: true,
       unique: true
     },
-    firstName: {
-      type: String,
-      trim: true,
-      default: ""
-    },
-    secondName: {
-      type: String,
-      trim: true,
-      default: ""
-    },
     passw: {
       type: String,
       trim: true,
