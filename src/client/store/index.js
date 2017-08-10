@@ -10,7 +10,12 @@ export default options => {
     middlewares.push(reduxLogger);
   }
 
-  const store = createStore(reducer, applyMiddleware(...middlewares));
+  const initialStore = { isAuthorized: false };
+  const store = createStore(
+    reducer,
+    initialStore,
+    applyMiddleware(...middlewares)
+  );
 
   if (module.hot) {
     module.hot.accept("../reducers", () => {

@@ -1,0 +1,35 @@
+.nav-list {
+  display: inherit;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav-list li {
+  display: inline-block;
+  height: inherit;
+  margin-left: 10px;
+}
+
+.nav-list li:first-child {
+  display: inline-block;
+  margin-left: 0;
+}
+
+.nav-list a {
+  display: inline-block;
+  height: inherit;
+  padding: 0px 10px;
+  background-color: #dfedff;
+  text-decoration: none;
+  color: #000;
+  border-radius: 2px;
+  border: #ccc solid 1px;
+  transition: background-color .2s;
+}
+
+.nav-list a:hover {
+  background-color: #378fff;
+  color: #fff;
+}

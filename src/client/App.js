@@ -1,8 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import getStore from "./store";
+import Header from "./containers/BlogHeader";
+import AuthorizePage from "./pages/AuthorizePage";
 import "./index.css";
 
 const store = getStore({});
@@ -52,22 +53,9 @@ export default class App extends React.Component {
       <Provider store={store}>
         <Router>
           <div>
-            <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <ul>
-                    <li>
-                      <Link to="/homepage">Home</Link>
-                    </li>
-                    <li>
-                      <Link to="/about">About</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <Header />
             <Route path="/homepage" component={Homepage} />
-            <Route path="/login" />
+            <Route path="/authorize" component={AuthorizePage} />
             <Route path="/about" component={About} />
             <Route path="/resume" />
           </div>

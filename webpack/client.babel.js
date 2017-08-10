@@ -113,7 +113,7 @@ module.exports = (env) => {
 
   const cssModules = {
     test: /\.css$/,
-    include: [path.resolve(process.cwd(), "src/client")],
+    include: [path.resolve(process.cwd(), "src", "client")],
     use: ifProd(
       ExtractTextPlugin.extract({
         fallback: "style-loader",
@@ -169,8 +169,8 @@ module.exports = (env) => {
       rules: [
         jsModules,
         jsLinter,
-        cssModules,
         globalCss,
+        cssModules,
         {
           test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
           loader: 'url-loader',

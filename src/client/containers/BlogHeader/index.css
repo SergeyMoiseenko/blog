@@ -1,0 +1,41 @@
+.blog-header {
+  width: 100vw;
+  height: 50px;
+  margin: 0;
+  padding: 10px 0;;
+  background-color: #000;
+}
+
+.nav-bar {
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  margin-left: 5%;
+}
+
+.user-pane {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  right: 0;
+  margin-right: 5%;
+}
+
+.user-pane a {
+  display: inline-block;
+  padding: 0px 10px;
+  background-color: #b2ffab;
+  text-decoration: none;
+  color: #000;
+  border-radius: 2px;
+  border: #ccc solid 1px;
+  transition: background-color .2s;
+}
+
+ .user-pane a:hover {
+  background-color: #44b93a;
+  color: #fff;
+}
