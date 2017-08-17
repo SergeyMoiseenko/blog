@@ -1,5 +1,5 @@
-# web-nodejs-starter
-Boilerplate for modern web-apps with Node.js, Express, React, MongoDB and Redis
+# blog
+My personal blog (under development) created on the basis of my web-nodejs-starter
 
 ## Quickstart
 
@@ -10,4 +10,4 @@ Boilerplate for modern web-apps with Node.js, Express, React, MongoDB and Redis
 4. `npm start`
 5. Code!
 
-Your app available on `http://localhost:[PORT]`. PORT must be specified in `.env` file.
+Blog available on `http://localhost:[PORT]`. PORT must be specified in `.env` file.
