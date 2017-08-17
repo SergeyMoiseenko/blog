@@ -1,3 +1,10 @@
 .main {
-  background-color: #ccc;
+  background-color: #fff;
+}
+
+.login-form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  
 }

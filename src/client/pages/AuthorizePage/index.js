@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import LoginForm from "../../containers/LoginForm";
 import "./style.css";
 
 class AuthorizePage extends React.Component {
@@ -10,7 +11,7 @@ class AuthorizePage extends React.Component {
   render() {
     return (
       <div styleName="main">
-        <p>AuthorizePage</p>
+        <LoginForm styleName="login-form" />
       </div>
     );
   }

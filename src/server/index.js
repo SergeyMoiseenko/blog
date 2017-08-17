@@ -10,7 +10,7 @@ import passport from "./authentication";
 const RedisStore = connectRedis(expressSession);
 const app = express();
 
-// Define logging configuraion for our server
+// Define logging configuraion for express
 app.use(morgan("dev"));
 
 // Configuration for user sessions

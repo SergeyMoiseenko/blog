@@ -14,7 +14,13 @@ function deserializeUser(serializedId, done) {
 
 function authenticateUser(username, password, done) {
   UserService.authentication(username, password)
-    .then(isAuthenticated => done(null, isAuthenticated))
+    .then(user => {
+      if (user) {
+        done(null, user);
+      } else {
+        done(null, false);
+      }
+    })
     .catch(err => done(err));
 }
 

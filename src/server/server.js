@@ -2,6 +2,7 @@ import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
 import usersApi from "./routes/users";
+import authApi from "./authentication/api";
 
 export default app => {
   // FIXME: Middlewares must be used in correct places
@@ -9,6 +10,9 @@ export default app => {
   app.use(bodyParser.json());
 
   app.use(express.static(path.join(__dirname, "public")));
+
+  app.use("/auth", authApi);
+
   app.get("/", (req, res) => {
     res.set("Content-Type", "text/html");
     res.send(`

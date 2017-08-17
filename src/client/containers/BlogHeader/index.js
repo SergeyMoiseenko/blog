@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutUser } from "../../actions/user";
 import NavBar from "../../components/NavBar";
-import "./index.css";
+import "./style.css";
 
-const mapStateToProps = ({ isAuthorized }) => ({ isAuthorized });
+const mapStateToProps = ({ user }) => ({ isAuthorized: user.isAuthorized });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser())
+});
 
 class BlogHeader extends React.Component {
   constructor(props) {
@@ -16,7 +19,11 @@ class BlogHeader extends React.Component {
   render() {
     let loginButton;
     if (this.props.isAuthorized) {
-      loginButton = <button type="button">Logout</button>;
+      loginButton = (
+        <button onClick={this.props.logoutUser} type="button">
+          Logout
+        </button>
+      );
     } else {
       loginButton = <Link to="/authorize">Login</Link>;
     }

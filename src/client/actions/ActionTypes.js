@@ -1,0 +1,8 @@
+export const LOGIN_BEGIN = "LOGIN_BEGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+
+export const AUTHORIZE_USER = "AUTHORIZE_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+
+export const UI_LOGIN_FORM_CHANGE = "UI_LOGIN_FORM_CHANGE";

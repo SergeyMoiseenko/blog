@@ -15,6 +15,7 @@
     "build:server:prod": "gulp server:build:prod"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-plugin-react-css-modules": "^3.1.0",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",

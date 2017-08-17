@@ -1,3 +1,4 @@
+import Promise from "bluebird";
 import { User } from "../models";
 
 function findById(id) {
@@ -9,7 +10,13 @@ function findByUsername(username) {
 }
 
 function authentication(username, passw) {
-  return findByUsername(username).then(user => user.comparePassw(passw));
+  return findByUsername(username).then(user =>
+    Promise.join(
+      user && user.comparePassw(passw),
+      user,
+      (isAuthorized, _user) => (isAuthorized ? _user : undefined)
+    )
+  );
 }
 
 function findOne(user) {

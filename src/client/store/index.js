@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
 import reduxLogger from "redux-logger";
+import * as status from "../utils/StatusTypes";
 import reducer from "../reducers";
 
 export default options => {
@@ -10,7 +11,15 @@ export default options => {
     middlewares.push(reduxLogger);
   }
 
-  const initialStore = { isAuthorized: false };
+  const initialStore = {
+    UI: {
+      loginForm: {}
+    },
+    user: {
+      isAuthorized: false
+    },
+    loginStatus: status.LOGIN_UNDEFINED
+  };
   const store = createStore(
     reducer,
     initialStore,
