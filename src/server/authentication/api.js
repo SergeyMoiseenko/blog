@@ -10,7 +10,7 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
     created: req.user.created
   };
 
-  res.send(JSON.stringify(user));
+  res.json(user);
 });
 
 export default router;

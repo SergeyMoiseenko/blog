@@ -1,11 +1,6 @@
 import * as actions from "./ActionTypes";
-import AuthService from "../services/Authorize";
-
-function loginFailed() {
-  return {
-    type: actions.LOGIN_ERROR
-  };
-}
+import AuthService from "../services/auth";
+import UserService from "../services/users";
 
 function startLogin() {
   return {
@@ -19,6 +14,31 @@ function loginSuccess(user) {
   };
 }
 
+function loginFailed() {
+  return {
+    type: actions.LOGIN_ERROR
+  };
+}
+
+function startRegistration() {
+  return {
+    type: actions.REGISTRATION_BEGIN
+  };
+}
+
+function registrationSuccess() {
+  return {
+    type: actions.REGISTRATION_SUCCESS
+  };
+}
+
+function registrationFailed(message) {
+  return {
+    type: actions.REGISTRATION_ERROR,
+    message
+  };
+}
+
 function authorizeUser(user) {
   return {
     type: actions.AUTHORIZE_USER,
@@ -26,7 +46,6 @@ function authorizeUser(user) {
   };
 }
 
-// eslint-disable-next-line
 export function loginUser(username, password) {
   return dispatch => {
     dispatch(startLogin());
@@ -37,6 +56,24 @@ export function loginUser(username, password) {
         dispatch(authorizeUser(result.user));
       } else {
         dispatch(loginFailed());
+      }
+    });
+  };
+}
+
+export function registerUser(username, email, password) {
+  return dispatch => {
+    dispatch(startRegistration());
+    UserService.createUser(username, email, password).then(result => {
+      if (result.isCreated) {
+        dispatch(registrationSuccess());
+      } else {
+        dispatch(
+          registrationFailed({
+            username: result.usernameMessage,
+            email: result.emailMessage
+          })
+        );
       }
     });
   };

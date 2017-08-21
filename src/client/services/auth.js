@@ -1,4 +1,5 @@
 import axios from "axios";
+import * as codes from "../utils/httpCodes";
 
 function authorize(username, password) {
   return axios
@@ -8,7 +9,7 @@ function authorize(username, password) {
     })
     .then(response => {
       switch (response.status) {
-        case 200: {
+        case codes.OK: {
           return {
             isAuthorized: true,
             user: {

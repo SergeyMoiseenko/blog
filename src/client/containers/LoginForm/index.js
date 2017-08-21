@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import UIActions from "../../actions/UI";
+import { loginFormChange } from "../../actions/UI";
 import * as UserActions from "../../actions/user";
 import * as status from "../../utils/StatusTypes";
+import { initWithDefaultString } from "../../utils/strings";
 import "./style.css";
 
 const mapStateToProps = state => {
@@ -18,7 +19,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   formChange: (target, value) => {
-    dispatch(UIActions.LoginForm.formChange(target, value));
+    dispatch(loginFormChange(target, value));
   },
 
   loginUser: (username, password) => {
@@ -38,15 +39,11 @@ class LoginForm extends React.Component {
   }
 
   getUsernameValue() {
-    return this.props[this.usernameInputName] === undefined
-      ? ""
-      : this.props[this.usernameInputName];
+    return initWithDefaultString(this.props[this.usernameInputName]);
   }
 
   getPasswordValue() {
-    return this.props[this.passwordInputName] === undefined
-      ? ""
-      : this.props[this.passwordInputName];
+    return initWithDefaultString(this.props[this.passwordInputName]);
   }
 
   handleSubmit(e) {
@@ -55,9 +52,7 @@ class LoginForm extends React.Component {
   }
 
   handleFormChange(e) {
-    const target = e.target.name;
-    const value = e.target.value;
-    this.props.formChange(target, value);
+    this.props.formChange(e.target.name, e.target.value);
   }
 
   renderErrorMessage() {

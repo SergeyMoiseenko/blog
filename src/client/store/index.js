@@ -13,7 +13,8 @@ export default options => {
 
   const initialStore = {
     UI: {
-      loginForm: {}
+      loginForm: {},
+      registerForm: {}
     },
     user: {
       isAuthorized: false

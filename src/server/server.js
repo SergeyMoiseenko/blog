@@ -1,7 +1,7 @@
 import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
-import usersApi from "./routes/users";
+import api from "./routes/api";
 import authApi from "./authentication/api";
 
 export default app => {
@@ -12,6 +12,7 @@ export default app => {
   app.use(express.static(path.join(__dirname, "public")));
 
   app.use("/auth", authApi);
+  app.use("/api", api);
 
   app.get("/", (req, res) => {
     res.set("Content-Type", "text/html");

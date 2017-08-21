@@ -31,6 +31,7 @@ export default function rootReducer(state, action) {
   return {
     UI: uiReducer(state.UI, action),
     user: userReducer(state.user, action),
+    // FIXME: loginStatus must be moved to loginForm reducer
     loginStatus: loginStatus(state.loginStatus, action)
   };
 }
