@@ -51,19 +51,21 @@ class RegisterForm extends React.Component {
   }
 
   getUsernameValue() {
-    return initWithDefaultString(this.props[this.usernameInputName]);
+    return initWithDefaultString(this.props.inputs[this.usernameInputName]);
   }
 
   getPasswordValue() {
-    return initWithDefaultString(this.props[this.passwordInputName]);
+    return initWithDefaultString(this.props.inputs[this.passwordInputName]);
   }
 
   getPasswordConfirmValue() {
-    return initWithDefaultString(this.props[this.passwordConfirmInputName]);
+    return initWithDefaultString(
+      this.props.inputs[this.passwordConfirmInputName]
+    );
   }
 
   getEmailValue() {
-    return initWithDefaultString(this.props[this.emailInputName]);
+    return initWithDefaultString(this.props.inputs[this.emailInputName]);
   }
 
   passwordsIsEqual() {

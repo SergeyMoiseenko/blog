@@ -9,8 +9,8 @@ import "./index.css";
 const store = getStore({});
 
 class Homepage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.name = "This is homepage for Sergey Moiseenko";
   }
 
@@ -26,8 +26,8 @@ class Homepage extends React.Component {
 }
 
 class About extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.info = "This is about page. This inf is secret.";
   }
 
@@ -43,8 +43,8 @@ class About extends React.Component {
 }
 
 export default class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.some = "some";
   }
 
@@ -53,8 +53,8 @@ export default class App extends React.Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Header />
-            <Route path="/homepage" component={Homepage} />
+            <Route component={Header} />
+            <Route exact path="/" component={Homepage} />
             <Route path="/authorize" component={AuthorizePage} />
             <Route path="/about" component={About} />
             <Route path="/resume" />

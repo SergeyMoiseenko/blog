@@ -24,7 +24,7 @@
   margin-right: 5%;
 }
 
-.user-pane a, button {
+.user-pane a, .user-pane button {
   font-size: 1rem;
   display: inline-block;
   padding: 0px 10px;
@@ -36,7 +36,7 @@
   transition: background-color .2s;
 }
 
- .user-pane a:hover, button:hover {
+ .user-pane a:hover, .user-pane button:hover {
   background-color: #44b93a;
   color: #fff;
 }

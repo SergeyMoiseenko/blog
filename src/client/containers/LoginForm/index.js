@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { loginFormChange } from "../../actions/UI";
 import * as UserActions from "../../actions/user";
 import * as status from "../../utils/StatusTypes";
@@ -10,11 +9,12 @@ import "./style.css";
 const mapStateToProps = state => {
   if (state.UI.loginForm === undefined) {
     return {
-      status: state.loginStatus
+      loginStatus: status.LOGIN_UNDEFINED,
+      inputs: {}
     };
   }
 
-  return Object.assign({}, state.UI.loginForm, { status: state.loginStatus });
+  return state.UI.loginForm;
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -39,11 +39,11 @@ class LoginForm extends React.Component {
   }
 
   getUsernameValue() {
-    return initWithDefaultString(this.props[this.usernameInputName]);
+    return initWithDefaultString(this.props.inputs[this.usernameInputName]);
   }
 
   getPasswordValue() {
-    return initWithDefaultString(this.props[this.passwordInputName]);
+    return initWithDefaultString(this.props.inputs[this.passwordInputName]);
   }
 
   handleSubmit(e) {
@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
   }
 
   renderErrorMessage() {
-    if (this.props.status === status.LOGIN_FAILED) {
+    if (this.props.loginStatus === status.LOGIN_FAILED) {
       return (
         <p styleName="error-message">
           Invalid username and/or password. Please try again.
@@ -67,14 +67,8 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    const redirect =
-      this.props.status === status.LOGIN_SUCCESS
-        ? <Redirect exact to="/" />
-        : undefined;
-
     return (
       <div className={this.props.className}>
-        {redirect}
         <form styleName="form-style" onSubmit={this.handleSubmit}>
           <label>
             <p>Username</p>

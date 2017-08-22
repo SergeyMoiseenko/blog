@@ -41,7 +41,6 @@ function findOne(user) {
 
 function createUser(user) {
   // TODO: Write error handling
-  console.log(user);
   return User.create(user);
 }
 

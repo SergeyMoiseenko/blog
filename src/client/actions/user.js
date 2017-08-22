@@ -52,8 +52,8 @@ export function loginUser(username, password) {
 
     AuthService.authorize(username, password).then(result => {
       if (result.isAuthorized) {
-        dispatch(loginSuccess());
         dispatch(authorizeUser(result.user));
+        dispatch(loginSuccess());
       } else {
         dispatch(loginFailed());
       }

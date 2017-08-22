@@ -18,18 +18,75 @@
 }
 
 .nav-list a {
+  text-transform: uppercase;
   display: inline-block;
   height: inherit;
   padding: 0px 10px;
-  background-color: #dfedff;
   text-decoration: none;
-  color: #000;
-  border-radius: 2px;
-  border: #ccc solid 1px;
-  transition: background-color .2s;
+  color: #fff;
+  transition: color 250ms ease-in-out;
+}
+
+.nav-list a:before {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 1px;
+  position: relative;
+  top: 0;
+  background-color: #fff;
+  transition: all 250ms ease-in-out;
+}
+
+.nav-list a:after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 1px;
+  position: relative;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  transition: all 250ms ease-in-out;
+}
+
+.nav-list a:hover:before {
+  width: 60%;
+}
+
+.nav-list a:hover:after {
+  left: 40%;
+  width: 60%
 }
 
 .nav-list a:hover {
-  background-color: #378fff;
-  color: #fff;
+  color: #e357ca;
 }
+
+.nav-list .activeLink {
+  color: #e357ca;
+}
+
+.nav-list .activeLink:before {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  position: relative;
+  top: 0;
+  background-color: #fff;
+  transition: all 250ms ease-in-out;
+}
+
+.nav-list .activeLink:after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  position: relative;
+  top: 0;
+  left: 20%;
+  background-color: #fff;
+  transition: all 250ms ease-in-out;
+}
+

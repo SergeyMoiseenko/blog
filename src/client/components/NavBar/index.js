@@ -1,19 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
+import { NavLink, Route } from "react-router-dom";
+import styles from "./style.css";
 
 function NavBar(props) {
   return (
     <div className={props.className}>
-      <ul styleName="nav-list">
+      <ul styleName="styles.nav-list">
         <li>
-          <Link to="/home">Home</Link>
+          <NavLink exact activeClassName={styles.activeLink} to="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <NavLink activeClassName={styles.activeLink} to="/about">
+            About
+          </NavLink>
         </li>
         <li>
-          <Link to="/resume">Resume</Link>
+          <NavLink activeClassName={styles.activeLink} to="/resume">
+            Resume
+          </NavLink>
         </li>
       </ul>
     </div>
