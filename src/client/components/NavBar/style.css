@@ -9,7 +9,7 @@
 .nav-list li {
   display: inline-block;
   height: inherit;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .nav-list li:first-child {
@@ -21,9 +21,9 @@
   text-transform: uppercase;
   display: inline-block;
   height: inherit;
-  padding: 0px 10px;
+  padding: 0px 0px;
   text-decoration: none;
-  color: #fff;
+  color: #eee;
   transition: color 250ms ease-in-out;
 }
 
@@ -35,7 +35,7 @@
   position: relative;
   top: 0;
   background-color: #fff;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out 50ms;
 }
 
 .nav-list a:after {
@@ -47,7 +47,7 @@
   top: 0;
   left: 100%;
   background-color: #fff;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out 50ms;
 }
 
 .nav-list a:hover:before {
