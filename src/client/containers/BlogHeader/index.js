@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { logoutUser } from "../../actions/user";
 import NavBar from "../../components/NavBar";
+import Button from "../../components/Button";
 import "./style.css";
 
 const mapStateToProps = ({ user }) => ({ isAuthorized: user.isAuthorized });
@@ -14,25 +15,25 @@ const mapDispatchToProps = dispatch => ({
 class BlogHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.goToAuthorizePage = this.goToAuthorizePage.bind(this);
+  }
+
+  goToAuthorizePage(e) {
+    this.props.history.push("/authorize");
   }
 
   render() {
-    let loginButton;
-    if (this.props.isAuthorized) {
-      loginButton = (
-        <button onClick={this.props.logoutUser} type="button">
-          Logout
-        </button>
-      );
-    } else {
-      loginButton = <Link to="/authorize">Login</Link>;
-    }
-
+    const auth = this.props.isAuthorized;
     return (
       <header styleName="blog-header">
         <NavBar styleName="nav-bar" />
         <div styleName="user-pane">
-          {loginButton}
+          <Button
+            onClick={auth ? this.props.logoutUser : this.goToAuthorizePage}
+            type="button"
+          >
+            {auth ? "Logout" : "Login"}
+          </Button>
         </div>
       </header>
     );
